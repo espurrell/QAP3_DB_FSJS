@@ -1,0 +1,5 @@
+1. As a Martha's Good Eats customer, I can see a web page listing all the products from the database.
+2. As a Martha's Good Eats business partner, I can fetch all the products from the database via a REST API.
+3. As a Martha's Good Eats staff member, I can add a new product to the products table through a web page.
+4. As a Martha's Good Eats staff member, I can update product details through a web page.
+5. As a Martha's Good Eats staff member, I can delete a product from the products table through a web page.

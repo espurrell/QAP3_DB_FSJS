@@ -1,17 +1,35 @@
-CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+DROP TABLE IF EXISTS Products;
+
+CREATE TABLE Products (
+	productID SERIAL PRIMARY KEY,
+	productName VARCHAR(255) NOT NULL,
+	productDescription TEXT,
+	productPrice DECIMAL(10,2) NOT NULL, 
+	productQuantity INTEGER NOT NULL 
 );
 
-SELECT * FROM products;
+INSERT INTO Products (productName, productDescription, productPrice, productQuantity)
+VALUES
+('mocha chip cookie', 'delicious coffee flavoured cookie', 4.00, 09),
+('brownie', 'delicious brownies with frosting', 5.00, 18),
+('vanilla bean scone', 'buttery scone with a vanilla bean glaze', 9.00, 27),
+('chocolate crossaint', 'delicious chocolate crossaint', 7.00, 36),
+('apple pie', 'warm apple pie with a dollop of vanilla ice cream', 10.00, 45),
+('carrot cake', 'carrot cake with butter cream frosting', 8.00, 54);
 
-INSERT INTO products (name, description, price) VALUES ('Product1', 'Description1', 19.99);
 
-UPDATE products SET name = 'Updated Product', price = 29.99 WHERE id = 1;
+INSERT INTO Products (productName, productDescription, productPrice, productQuantity)
+VALUES ('new_product_name', 'new_product_description', 5.00, 63);
 
-UPDATE products SET price = 25.99 WHERE id = 1;
 
-DELETE FROM products WHERE id = 1;
+SELECT * FROM Products WHERE productID = $1;
+
+SELECT * FROM Products;
+
+UPDATE Products SET productName = 2, productDescription = 3, productPrice = 4, productQuantity = 5 WHERE productID = 1;
+
+
+
+DELETE FROM Products WHERE productID = 2;
+
+SELECT * FROM Products;

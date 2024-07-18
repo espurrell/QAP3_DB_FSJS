@@ -6,10 +6,20 @@ const apiRoutes = require('./routes/api');
 const app = express();
 const port = 3000;
 
-app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride('_method'));
+global.DEBUG = true;    // Enable/disable debug messages
 
+app.set('view engine', 'ejs'); // Set the view engine to EJS
+app.set('views', path.join(__dirname, 'views')); // Set the views directory
+
+// Middleware
+app.use(methodOverride('_method')); // Enable the use of HTTP verbs such as PUT and DELETE
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the public directory    
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+// Routes
+const productsDal = require('./dal/products');
 app.use('/api', apiRoutes);
 
 app.get('/', (req, res) => {

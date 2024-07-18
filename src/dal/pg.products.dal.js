@@ -84,9 +84,9 @@ const deleteProduct = (productId) => { // DELETE - product by id
 
 module.exports = {
     getAllProducts,
+    getProductById,
     createProduct,
     updateProduct,
-    updateProductPrice,
     deleteProduct,
 };
 

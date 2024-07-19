@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <header><h1>Product</h1></header>
+    <main>
+        <div class="product">
+            <h2> <%= product.productName %> </h2>>
+            <p> <%= product.productDescription %></p>
+            <% if (!isNaN(parseFloat(product.productPrice))) { %>
+                <p>Price: $<%= product.productPrice %></p>
+            <% }else { %>
+            <p>Price: Unavailable</p>
+            <% } %>
+        </div>
+    <form>
+        <button formaction = "/products/<%= product.productId %>/update" type="submit">Edit/Update Product</button>
+    </form>
+    </main>
+</body>
+</html>

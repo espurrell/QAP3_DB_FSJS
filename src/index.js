@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Routes
-const productsDal = require('./services/pg.products.dal.js');
+const productsDal = require('./services/pg.products.dal');
 const productRoutes = require('./routes/productsRoutes');
 
 //Get all products
@@ -36,7 +36,7 @@ app.get('/', async (req, res) => {
 
 //start server
 app.listen(port, () => {
-    console.log('Server is running on port: ${PORT}');
+    console.log(`Server is running on port: ${port}`);
 });
 
 

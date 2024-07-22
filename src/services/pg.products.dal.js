@@ -48,7 +48,7 @@ const createProduct = (productName, productDescription, productPrice, productQua
 
 const updateProduct = (productId, productName, productDescription, productPrice, productQuantity) => {
     console.log('Update Product: PUT request')
-    console.log('postman req data: ${productId}, ${productName}, ${productDescription}, ${productPrice}, ${productQuantity}')
+    console.log(`postman req data: ${productId}, ${productName}, ${productDescription}, ${productPrice}, ${productQuantity}`)
 
     return new Promise() ((resolve, reject) => {
         const sql = "UPDATE products SET productname = $1, productdescription = $2, productprice = $3, productquantity = $4 WHERE productid = $5";

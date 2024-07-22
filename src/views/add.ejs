@@ -11,22 +11,22 @@
         <%- include ('header', {pageTitle: 'Add Product'}) %>
     </header>
 
-    <main class = "container"
-    <form action="/products" method="POST" class="product-form">
-        <label for="productname" class="form-label">Name:</label>
-        <input id="productname" name="productname" type="text" class="form-input" />
+    <main class = "container">
+        <form action="/products" method="POST" class="product-form">
+            <label for="productname" class="form-label">Name:</label>
+            <input id="productname" name="productname" type="text" class="form-input" />
 
-        <label for="productdescription" class="form-label">Description:</label>
-        <input id="productdescription" name="productdescription" type="text" class="form-input" />
+            <label for="productdescription" class="form-label">Description:</label>
+            <input id="productdescription" name="productdescription" type="text" class="form-input" />
 
-        <label for="productprice" class="form-label">Price:</label>
-        <input id="productprice" name="productprice" type="number" min="0" step="0.01" class="form-input" />
+            <label for="productprice" class="form-label">Price:</label>
+            <input id="productprice" name="productprice" type="number" min="0" step="0.01" class="form-input" />
 
-        <label for="stockquantity" class="form-label">Qty:</label>
-        <input id="stockquantity" name="stockquantity" type="number" min="0" class="form-input" />
+            <label for="stockquantity" class="form-label">Qty:</label>
+            <input id="stockquantity" name="stockquantity" type="number" min="0" class="form-input" />
 
-        <button type="submit">Add</button>
-    </form>
+         <button type="submit">Add</button>
+        </form>
     <div class = "container text-center mt-3">
         <a href="/products" class = "btn btn-primary">Back to Products</a>
     </div>

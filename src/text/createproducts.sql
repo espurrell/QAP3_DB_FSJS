@@ -22,7 +22,7 @@ INSERT INTO Products (productName, productDescription, productPrice, productQuan
 VALUES ('new_product_name', 'new_product_description', 5.00, 63);
 
 
-SELECT * FROM Products WHERE productID = $1;
+SELECT * FROM Products WHERE productID = 1;
 
 SELECT * FROM Products;
 

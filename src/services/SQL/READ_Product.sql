@@ -1,2 +1,2 @@
-SELECT * FROM Products WHERE productID = $1;
+SELECT * FROM Products WHERE productID = 1;
 

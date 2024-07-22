@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const productsDal = require('../services/pg.products.dal.js');
+const productsDal = require('../services/pg.products.dal');
 
 router.get('/', async (req, res) => { // GET - all products
     try {
@@ -16,6 +16,8 @@ router.get('/:id', async (req, res) => { // GET - product by id
         const productId = req.params.id;
         const product = await productsDal.getProductById(productId);
         if(!product){
+            res.status(404).json({message: 'Product not found', status: 404});
+        }else{
             res.json(product);
         }
     } catch (error) {

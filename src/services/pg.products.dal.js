@@ -1,7 +1,5 @@
 const pool = require('./database');
 
-
-
 const getAllProducts = () => { // GET - all products
     return new Promise ((resolve, reject) => {
         const sql = 'SELECT * FROM products';

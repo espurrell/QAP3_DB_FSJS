@@ -1,7 +1,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const path = require('path');
-const apiRoutes = require('./routes/api');
+const apiRoutes = require('./api/api');
 
 const app = express();
 const port = 3000;
@@ -19,7 +19,7 @@ app.use(express.json());
 
 
 // Routes
-const productsDal = require('./dal/products');
+const productsDal = require('./services/products');
 app.use('/api', apiRoutes);
 
 app.get('/', (req, res) => {

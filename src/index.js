@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 const productsDal = require('./services/pg.products.dal');
-const productRoutes = require('./routes/productsRoutes');
+const productRoutes = require('./api/productsRoutes');
 
 //Get all products
 app.use('/products', productRoutes);

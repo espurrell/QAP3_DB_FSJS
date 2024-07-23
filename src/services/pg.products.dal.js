@@ -2,7 +2,7 @@ const pool = require('./database');
 
 const getAllProducts = () => { // GET - all products
     return new Promise ((resolve, reject) => {
-        const sql = 'SELECT * FROM products';
+        const sql = "SELECT * FROM products;";
         pool.query(sql, (err, result) => {
             if (err) {
                 console.error('Error executing fetching products', err);
@@ -15,11 +15,11 @@ const getAllProducts = () => { // GET - all products
 };
 
 const getProductById = (productId) => { // GET - product by id
-    return new Promise ((resolve, reject) => {
-        const sql = "SELECT * FROM products WHERE productId = $1";
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT * FROM products WHERE productid = $1;";
         pool.query(sql, [productId], (err, result) => {
             if (err) {
-                console.error('Error executing fetching product by id', err);
+                console.error('Error executing fetching product by id:', err);
                 reject(err);
             }else{
                 resolve(result.rows[0]);
@@ -31,7 +31,7 @@ const getProductById = (productId) => { // GET - product by id
  // POST - create product
 const createProduct = (productName, productDescription, productPrice, productQuantity) => { 
     return new Promise ((resolve, reject) => {
-        const sql = 'INSERT INTO products (name, description, price) VALUES ($1, $2, $3)';
+        const sql = "INSERT INTO products (productname, productdescription, productprice, productquantity) VALUES ($1, $2, $3, $4);";
         const values = [productName, productDescription, productPrice, productQuantity];
         pool.query(sql, values, (err, result) => {
             if (err) {
@@ -47,11 +47,11 @@ const createProduct = (productName, productDescription, productPrice, productQua
 
 
 const updateProduct = (productId, productName, productDescription, productPrice, productQuantity) => {
-    console.log('Update Product: PUT request')
+    console.log(`Update Product: PUT request`)
     console.log(`postman req data: ${productId}, ${productName}, ${productDescription}, ${productPrice}, ${productQuantity}`)
 
     return new Promise() ((resolve, reject) => {
-        const sql = "UPDATE products SET productname = $1, productdescription = $2, productprice = $3, productquantity = $4 WHERE productid = $5";
+        const sql = "UPDATE products SET productname = $1, productdescription = $2, productprice = $3, productquantity = $4 WHERE productid = $5;";
         const values = [productId, productName, productDescription, productPrice, productQuantity]; 
         pool.query(sql, values, (err, result) => {
             if (err) {
@@ -68,7 +68,7 @@ const updateProduct = (productId, productName, productDescription, productPrice,
 const deleteProduct = (productId) => { // DELETE - product by id
     console.log(`pid: ${productId}, type: ${typeof productId}`)
     return new Promise ((resolve, reject) => {
-        const sql = 'DELETE FROM products WHERE productId = $1';
+        const sql = "DELETE FROM products WHERE productId = $1;";
         pool.query(sql, [productId], (err, result) => {
             if (err) {
                 console.error('Error executing deleting product', err);

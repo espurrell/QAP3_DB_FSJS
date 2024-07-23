@@ -8,11 +8,11 @@
 </head>
 <body>
     <header>
-        <%- include ('header', {pageTitle: 'Add Product'}) %>
+        <%- include('header', {pageTitle: 'Add Product'}) %>
     </header>
 
     <main class = "container">
-        <form action="/products" method="POST" class="product-form">
+        <form action="/products/<%= product.productid %>" method="POST" class="product-form"> 
             <label for="productname" class="form-label">Name:</label>
             <input id="productname" name="productname" type="text" class="form-input" />
 

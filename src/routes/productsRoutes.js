@@ -14,7 +14,7 @@ router.get('/', async (req, res) => { // GET - all products
 router.get('/:id', async (req, res) => { // GET - product by id
     try{
         const product = await productsDal.getProductById(req.params.id);
-        console.log ('product one: ${JSON.stringify(product)}');
+        console.log (`product one: ${JSON.stringify(product)}`);
         if (product)
             res.render ('product', {product});
         else
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => { // GET - product by id
 
 router.post('/', async (req, res) => { // POST - create product
     try {
-        console.log('post re data: ${JSON.stringify(req.body)}');
+        console.log(`post re data: ${JSON.stringify(req.body)}`);
         await productsDal.createProduct(req.body.productName, req.body.productDescription, req.body.productPrice, req.body.productQuantity);
         const products = await productsDal.getAllProducts();    
         res.render('products', {products});

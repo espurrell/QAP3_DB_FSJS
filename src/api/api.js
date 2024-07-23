@@ -11,7 +11,7 @@ router.get('/', async (req, res) => { // GET - all products
     }
 });
 
-router.get('/:id', async (req, res) => { // GET - product by id
+router.get('/:id', async (req, res) => {
     try{
         const productId = req.params.id;
         const product = await productsDal.getProductById(productId);

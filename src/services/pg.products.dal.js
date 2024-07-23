@@ -16,7 +16,7 @@ const getAllProducts = () => { // GET - all products
 
 const getProductById = (productId) => { // GET - product by id
     return new Promise ((resolve, reject) => {
-        const sql = "SELECT * FROM products WHERE productId = 1";
+        const sql = "SELECT * FROM products WHERE productId = $1";
         pool.query(sql, [productId], (err, result) => {
             if (err) {
                 console.error('Error executing fetching product by id', err);

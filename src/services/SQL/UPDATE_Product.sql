@@ -1,1 +1,1 @@
-UPDATE Products SET productName = 2, productDescription = 3, productPrice = 4, productQuantity = 5 WHERE productID = 1;
+UPDATE products SET productName =$2, productDescription = $3, productPrice = $4, productQuantity = $5 WHERE productID = $1;

@@ -1,12 +1,12 @@
 .container{
     max-width: 800px;
-    margin: 0 auto;
+    margin: 10 auto;
     padding: 20px;
     padding-right: 50px;
 }
 
 .product-form {
-    background-color: aliceblue;
+    background-color: rgb(65, 133, 193);
     border:1px solid #dee2e6;
     border-radius:5px;
     padding:20px;
@@ -27,7 +27,7 @@
 }
 
 button{
-    background-color: #ced4da;
+    background-color: #0b4988;
     color:#dee2e6;
     border: none;
     padding: 10px 20px;

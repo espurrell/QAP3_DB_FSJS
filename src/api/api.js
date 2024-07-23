@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const productsDal = require('../services/pg.products.dal');
+const router = require('express').Router(); // import express and create a router
+const productsDal = require('../services/pg.products.dal');// import the products data access layer
 
 router.get('/', async (req, res) => { // GET - all products
     try {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => { // GET - all products
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => { // GET - product by id
     try{
         const productId = req.params.id;
         const product = await productsDal.getProductById(productId);

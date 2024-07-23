@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const productsDal = require('../services/pg.products.dal');
+const router = require('express').Router(); // import express and create a router
+const productsDal = require('../services/pg.products.dal'); // import the products data access layer
 
 router.get('/', async (req, res) => { // GET - all products
     try {
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => { // POST - create product
     console.log("post request");
     try {
         console.log(`post re data: ${JSON.stringify(req.body)}`);
-        await productsDal.addProduct(req.body.productname, req.body.productdescription, req.body.productprice, req.body.productquantity);
+        await productsDal.createProduct(req.body.productname, req.body.productdescription, req.body.productprice, req.body.productquantity);
         const products = await productsDal.getAllProducts();    
         res.render('products', { products });
     } catch (error) {
@@ -56,7 +56,7 @@ router.post("/:id/update", async (req, res) => { // POST - update product
     res.render("edit", { product });
 });
 
-router.get("/0/add", async (req, res) => { 
+router.get("/0/add", async (req, res) => { // GET - add product
     console.log("add product request + form");
     res.render("add");
 });
@@ -72,5 +72,5 @@ router.delete('/:id', async (req, res) => { // DELETE - delete product
     }
 });
 
-module.exports = router;
+module.exports = router; // export the router
      

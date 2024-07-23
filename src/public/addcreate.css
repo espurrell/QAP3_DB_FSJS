@@ -6,8 +6,8 @@
 }
 
 .product-form {
-    background-color: aliceblue;
-    border:1px solid #dee2e6;
+    background-color: rgb(96, 166, 228);
+    border:1px solid #162e46;
     border-radius:5px;
     padding:20px;
     padding-right: 50px;
@@ -22,15 +22,15 @@
     width: 100%;
     padding: 8px;
     margin: 0 10px 10px 0;  
-    border: 1px solid #ced4da;
+    border: 1px solid #05284b;
     border-radius: 5px;
 }
 
 button{
-    background-color: #ced4da;
+    background-color: #5d9df1;
     color:#dee2e6;
     border: none;
-    padding: 10px 20px;
+    padding: 100px 20px;
     border-radius: 5px;
     text-decoration: none;
     margin-top: 10px;

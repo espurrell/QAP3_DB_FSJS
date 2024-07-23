@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <link rel="stylesheet" href="../public/products.css">
 </head>
 <body>
 
@@ -22,26 +23,26 @@
                 <div class = "col-md-4 mb-3">
                     <div class = "card product">
                         <div class = "card-body">
-                            <h3><%=product.productName %></h3>
-                            <p>Description:<%= product.productDescription %></p>
-                            <p> Quantity: <%= product.productQuantity %></p>
+                            <h3><%=product.productname %></h3>
+                            <p>Description:<%= product.productdescription %></p>
+                            <p>Quantity: <%= product.productquantity %></p>
                             
-                            <% if (!isNaN(parseFloat(product.productPrice))) { %>
-                                <p>Price: $<%= product.productPrice %></p>
+                            <% if (!isNaN(parseFloat(product.productprice))) { %>
+                                <p>Price: $<%= product.productprice %></p>
                             <% } else { %>
                                 <p>Price: Unavailable</p>
                             <% } %>
 
                             <div class = "d-flex justify-content-between">
-                                <form method="post" action="/products/<%= product.productId %>/update">
+                                <form method="POST" action="/products/<%= product.productid %>/update">
                                     <button type="submit" class="btn btn-primary">Edit/Update Product</button>
                                 </form>
                                 <form
-                                    id="deleteForm_<%= product.productId %>"
+                                    id="deleteForm_<%= product.productid %>"
                                     method="post"
-                                    action="/products/<%= product.productId %>?_method=DELETE">
+                                    action="/products/<%= product.productid %>?_method=DELETE">
                                 
-                                    <button onclick="confirmDelete('<%= product.productId %>')" type="button" class="btn btn-danger">Delete Product</button>
+                                    <button onclick="confirmDelete('<%= product.productid %>')" type="button" class="btn btn-danger">Delete Product</button>
                                 </form>
                             </div>
                             </div>
@@ -56,7 +57,7 @@
 
     <script>
         function confirmDelete(productId) {
-            if (confirm("Note: Are you certain you wish to remove this product?")) {
+            if (confirm("Remove Product?")) {
                 document.getElementById("deleteForm_" + productId).submit();
                 setTimeout(function() {
                     window.location.href = "/products";
